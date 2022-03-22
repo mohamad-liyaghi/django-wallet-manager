@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {%load static%}
+    <meta charset="UTF-8">
+    <title>Login</title>
+
+</head>
+<body>
+    <link rel="stylesheet" href="{% static 'account/css/style.css' %}">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'></script>
+    <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <form id="msform"  method="post">
+                {%csrf_token%}
+                <ul id="progressbar">
+                    <a href="#">
+                        <li class="active">Username</li>
+                        <li>Password</li>
+                        <li>Done</li>
+                    </a>
+                </ul>
+                <fieldset>
+                    <h2 class="fs-title">Enter Your username</h2>
+                    {{form.username}}
+                    <input type="button" name="next" class="next action-button" value="Next"/>
+                </fieldset>
+
+                <fieldset>
+                    <h2 class="fs-title">Enter your password</h2>
+                    {{form.password}}
+                    <input type="submit" name="next" class="next action-button" value="Submit"/>
+                    <input type="button" name="next" class="previous action-button" value="previous"/>
+                </fieldset>
+        </form>
+    </div>
+</div>
+<script src="{% static 'account/js/main.js' %}"></script>
+
+</body>
+</html>
