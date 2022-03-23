@@ -4,7 +4,7 @@
 <head>
     {%load static%}
     <meta charset="UTF-8">
-    <title>Register</title>
+    <title>Update</title>
 
 </head>
 <body>
@@ -13,35 +13,26 @@
                         {%csrf_token%}
                 <ul id="progressbar">
                     <a href="#">
-                        <li class="active">Information</li>
-                        <li>Money</li>
+                        <li class="active">mount</li>
+                        <li>information</li>
                         <li>Done</li>
                     </a>
                 </ul>
                 <fieldset>
                     <h2 class="fs-title">fill the form </h2>
-                    <h3 class="fs-subtitle">Username</h3>
-                    {{form.username}}
-                    <h3 class="fs-subtitle">first name</h3>
-                    {{form.first_name}}
-                    <h3 class="fs-subtitle">last name</h3>
-                    {{form.last_name}}
-
+                    <h3 class="fs-subtitle">mount of money</h3>
+                    {{form.mount}}
+                    <h3 class="fs-subtitle">add or cost</h3>
+                    {{form.action}}
+                    <br>
                     <input type="button" name="next" class="next action-button" value="Next"/>
                 </fieldset>
-
                 <fieldset>
-                    <h2 class="fs-title">confirm your password</h2>
-                    <h3 class="fs-subtitle">password</h3>
-                    {{form.password1}}
-                    <h3 class="fs-subtitle">confirm your password</h3>
-                    {{form.password2}}
-                    <input type="button" name="next" class="next action-button" value="Next"/>
-                </fieldset>
-
-                <fieldset>
-                    <h2 class="fs-title">Tell us how much money do you have</h2>
-                    {{form.fund}}
+                    <h2 class="fs-title">add info</h2>
+                    <h3 class="fs-subtitle">title</h3>
+                    {{form.title}}
+                    <h3 class="fs-subtitle">description</h3>
+                    {{form.description}}
                     <input type="submit" name="next" class="next action-button" value="Submit"/>
                     <input type="button" name="next" class="previous action-button" value="previous"/>
                 </fieldset>

@@ -9,4 +9,4 @@ class Transaction(models.Model):
     description = models.TextField()
     action = models.CharField(max_length=1,choices=Choices.choices)
     mount = models.PositiveSmallIntegerField(default=0,blank=True,null=True)
-    owner = models.ForeignKey(User,on_delete=models.CASCADE)
+    owner = models.ForeignKey(User,on_delete=models.CASCADE,blank=True,null=True)
