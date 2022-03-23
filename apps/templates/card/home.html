@@ -1,0 +1,22 @@
+{%extends 'base/base.html'%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+{%block body%}
+    <form id="msform">
+        <fieldset>
+            <h2>Hello dear {{request.user.get_full_name}}</h2>
+            <br><hr><br>
+            <h3>You have only {{object_list}}$$ in your card</h3>
+            <br><hr><br>
+            <a href="#"><input type="button"  class="next action-button" value="Update"/></a>
+            <a href="#"><input type="button"  class="next action-button" value="History"/></a>
+        </fieldset>
+    </form>
+{%endblock%}
+</body>
+</html>

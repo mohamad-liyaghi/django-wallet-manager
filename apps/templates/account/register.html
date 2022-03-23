@@ -1,3 +1,4 @@
+{%extends 'base/base.html'%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,12 +8,7 @@
 
 </head>
 <body>
-    <link rel="stylesheet" href="{% static 'account/css/style.css' %}">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'></script>
-    <div class="row">
-    <div class="col-md-6 col-md-offset-3">
+    {%block body%}
         <form id="msform"  method="post">
                         {%csrf_token%}
                 <ul id="progressbar">
@@ -50,8 +46,7 @@
                     <input type="button" name="next" class="previous action-button" value="previous"/>
                 </fieldset>
         </form>
-    </div>
-</div>
+    {%endblock%}
 <script src="{% static 'account/js/main.js' %}"></script>
 
 </body>
