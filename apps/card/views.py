@@ -1,6 +1,6 @@
-from django.shortcuts import render,HttpResponse,redirect
+from django.shortcuts import render,HttpResponse,redirect,get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import ListView,FormView,ListView
+from django.views.generic import ListView,FormView,ListView,DetailView
 from django.contrib import messages
 from account.models import User
 from card.models import Transaction
@@ -27,3 +27,9 @@ class History(ListView):
     template_name = "card/history.html"
     def get_queryset(self):
         return Transaction.objects.filter(owner=self.request.user)
+class HistoryDetail(DetailView):
+    template_name = "card/history_ditail.html"
+    def get_object(self):
+        pk = self.kwargs.get('pk')
+        object = get_object_or_404(Transaction, pk=pk)
+        return object

@@ -3,16 +3,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>History</title>
+    <title>History page</title>
 </head>
 <body>
 {%block body%}
     <form id="msform">
         <fieldset>
-            <h3>History page</h3>
-               {%for history in object_list%}
-                    <h3><a href="{%url 'card:detail' history.pk%}">{{history}}<br> </a></h3>
-                {%endfor%}
+            <h2>Title: {{object.title}}</h2><br>
+            <h3>Description: {{object.description}}</h3><br>
+            <h3>mount: {{object.mount}}$</h3><br>
+            <h3>action: {{object.action}}</h3><br>
             <a href="{%url 'card:home'%}"><input type="button"  class="next action-button" value="Home"/></a>
         </fieldset>
     </form>

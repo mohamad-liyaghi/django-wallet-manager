@@ -13,8 +13,8 @@
             <br><hr><br>
             <h3>You have only {{object_list}}$$ in your card</h3>
             <br><hr><br>
-            <a href="#"><input type="button"  class="next action-button" value="Update"/></a>
-            <a href="#"><input type="button"  class="next action-button" value="History"/></a>
+            <a href="{%url 'card:update'%}"><input type="button"  class="next action-button" value="Update"/></a>
+            <a href="{%url 'card:history'%}"><input type="button"  class="next action-button" value="History"/></a>
         </fieldset>
     </form>
 {%endblock%}
