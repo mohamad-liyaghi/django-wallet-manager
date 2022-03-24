@@ -1,8 +1,9 @@
 from django.shortcuts import render,HttpResponse,redirect
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import ListView,FormView
+from django.views.generic import ListView,FormView,ListView
 from django.contrib import messages
 from account.models import User
+from card.models import Transaction
 from .forms import CardForm
 from account.forms import RegisterForm
 # Create your views here.
@@ -22,3 +23,7 @@ class Update(LoginRequiredMixin,FormView):
     def form_invalid(self, form):
         print(form.errors)
 
+class History(ListView):
+    template_name = "card/history.html"
+    def get_queryset(self):
+        return Transaction.objects.filter(owner=self.request.user)

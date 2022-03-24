@@ -1,0 +1,19 @@
+{%extends 'base/base.html'%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>History</title>
+</head>
+<body>
+{%block body%}
+    <form id="msform">
+        <fieldset>
+               {%for history in object_list%}
+                    <a href="#">{{history}}<br><hr> </a>
+                {%endfor%}
+        </fieldset>
+    </form>
+{%endblock%}
+</body>
+</html>
