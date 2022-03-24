@@ -130,3 +130,7 @@ STATIC_URL = 'apps/static/'
 STATICFILES_DIRS = [
     BASE_DIR / "apps/static",
 ]
+
+LOGIN_REDIRECT_URL = "card:home"
+LOGIN_URL = "account:login"
+LOGOUT_REDIRECT_URL = "account:login"

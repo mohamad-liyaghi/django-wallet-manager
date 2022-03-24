@@ -17,7 +17,7 @@ class Register(CreateView):
         form.save()
         return  redirect('card:home')
     def form_invalid(self, form):
-        print(form.errors)
+        return redirect("account:login")
 def Logout(request):
 	logout(request)
 	return redirect('card:home')
