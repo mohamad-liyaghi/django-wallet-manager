@@ -25,6 +25,7 @@ class Update(LoginRequiredMixin,FormView):
 
 class History(ListView):
     template_name = "card/history.html"
+    paginate_by = 5
     def get_queryset(self):
         return Transaction.objects.filter(owner=self.request.user)
 class HistoryDetail(DetailView):

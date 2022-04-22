@@ -1,21 +1,33 @@
 {%extends 'base/base.html'%}
+{%load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>History</title>
+
+
 </head>
 <body>
 {%block body%}
     <form id="msform">
         <fieldset>
-            <h3>History page</h3>
+            <h2 align="left">History page</h2><hr><br>
                {%for history in object_list%}
-                    <h3><a href="{%url 'card:detail' history.pk%}">{{history}}<br> </a></h3>
+                    <h4 align="left"><a href="{%url 'card:detail' history.pk%}">{{history}}<br> </a></h4><br>
                 {%endfor%}
             <a href="{%url 'card:home'%}"><input type="button"  class="next action-button" value="Home"/></a>
+            {% if is_paginated %}
+              <div class="container">
+                  {% for object in page_obj.paginator.page_range %}
+                    <a href="{% url 'card:history' %}?page={{ forloop.counter }}"><input class="next action-button" style="width:40px;" value="{{ forloop.counter }}"></a>
+                    {%endfor%}
+
+              </div>
+            {%endif%}
         </fieldset>
     </form>
+
 {%endblock%}
 </body>
 </html>

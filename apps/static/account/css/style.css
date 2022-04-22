@@ -16,13 +16,13 @@ html {
 body {
     font-family: montserrat, arial, verdana;
     background: transparent;
+
 }
 
 /*form styles*/
 #msform {
     text-align: center;
     position: relative;
-    margin-top: 30px;
 }
 
 #msform fieldset {
@@ -34,7 +34,6 @@ body {
     box-sizing: border-box;
     width: 80%;
     margin: 0 10%;
-
     /*stacking fieldsets above each other*/
     position: relative;
 }
@@ -200,7 +199,7 @@ body {
 
   body {
             direction: rtl;
-            text-align: right;
+            text-align: left;
             font-size: 14px;
         }
 
