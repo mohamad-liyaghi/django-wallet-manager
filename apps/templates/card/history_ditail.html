@@ -9,10 +9,10 @@
 {%block body%}
     <form id="msform">
         <fieldset>
-            <h2>Title: {{object.title}}</h2><br>
-            <h3>Description: {{object.description}}</h3><br>
-            <h3>mount: {{object.mount}}$</h3><br>
-            <h3>action: {{object.action}}</h3><br>
+            <h2>Title: {{object.title}}</h2><hr><br>
+            <h4>Description: {{object.description}}</h4><hr><br>
+            <h4>mount: {{object.mount}}$</h4><hr><br>
+            <h4>action: {{object.action}}</h4><hr><br>
             <a href="{%url 'card:home'%}"><input type="button"  class="next action-button" value="Home"/></a>
         </fieldset>
     </form>
