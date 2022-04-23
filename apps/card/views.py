@@ -10,6 +10,8 @@ from account.forms import RegisterForm
 class Home(LoginRequiredMixin,ListView):
     template_name = "card/home.html"
     def get_queryset(self):
+        if self.request.user.fund == None:
+            User.objects.filter(username=self.request.user.username).update(fund=0)
         return self.request.user.fund
 class Update(LoginRequiredMixin,FormView):
     template_name = "card/update.html"
@@ -29,7 +31,7 @@ class History(ListView):
     def get_queryset(self):
         return Transaction.objects.filter(owner=self.request.user)
 class HistoryDetail(DetailView):
-    template_name = "card/history_ditail.html"
+    template_name = "card/history_detail.html"
     def get_object(self):
         pk = self.kwargs.get('pk')
         object = get_object_or_404(Transaction, pk=pk)
