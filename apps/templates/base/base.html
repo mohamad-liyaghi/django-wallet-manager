@@ -2,30 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    {%load static%}
-    <link rel="stylesheet" href="{% static 'account/css/style.css' %}">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'></script>
-    <link rel="stylesheet" href="{% static 'account/css/paging.css' %}">
-    <script src="{% static 'account/js/paging.js' %}"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
 </head>
 <body>
+    {% include 'base/navbar.html' %}
+
     {% if messages %}
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
         {% for message in messages %}
-          <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            {{ message }}
+
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+             {{ message }}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
+
         {% endfor %}
     {% endif %}
-<div class="row">
-    <div class="col-md-6 col-md-offset-3">
-        {%block body%}
-        {%endblock%}
+    <br>
+    <div class="container ">
+        <div class="shadow p-4 mb-5 bg-body rounded">
+            {%block body%}
+            {%endblock%}
+        </div>
     </div>
-</div>
+
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </html>

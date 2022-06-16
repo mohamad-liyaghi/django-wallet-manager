@@ -1,5 +1,4 @@
 {%extends 'base/base.html'%}
-{%load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,21 +10,24 @@
 <body>
 {%block body%}
     <form id="msform">
-        <fieldset>
-            <h2 align="left">History page</h2><hr><br>
-               {%for history in object_list%}
-                    <h4 align="left"><a href="{%url 'card:detail' history.pk%}">{{history}}<br> </a></h4><br>
-                {%endfor%}
-            <a href="{%url 'card:home'%}"><input type="button"  class="next action-button" value="Home"/></a>
-            {% if is_paginated %}
-              <div class="container">
-                  {% for object in page_obj.paginator.page_range %}
-                    <a href="{% url 'card:history' %}?page={{ forloop.counter }}"><input class="next action-button" style="width:40px;" value="{{ forloop.counter }}"></a>
-                    {%endfor%}
+            <h2 >History page</h2><hr><br>
 
-              </div>
+
+               {%for history in object_list%}
+                    <h5><a href="{%url 'card:detail' history.pk%}">{{history}}<br> </a></h5><br>
+                {%endfor%}
+            
+            {% if is_paginated %}
+              <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    {% for object in page_obj.paginator.page_range %}
+                    <li class="page-item"><a class="page-link" href="{% url 'card:history' %}?page={{ forloop.counter }}">{{ forloop.counter }}</a></li>
+                    {%endfor%}
+                </ul>
+              </nav>
             {%endif%}
-        </fieldset>
+
+        <br><a href="{%url 'card:home'%}"><input type="button"  class="btn btn-secondary" value="Home"/></a>
     </form>
 
 {%endblock%}

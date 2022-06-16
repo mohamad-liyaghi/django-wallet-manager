@@ -1,43 +1,28 @@
 {%extends 'base/base.html'%}
+{% load crispy_forms_tags %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    {%load static%}
     <meta charset="UTF-8">
     <title>Update</title>
 
 </head>
 <body>
     {%block body%}
-        <form id="msform"  method="post">
-                        {%csrf_token%}
-                <ul id="progressbar">
-                    <a href="#">
-                        <li class="active">mount</li>
-                        <li>information</li>
-                        <li>Done</li>
-                    </a>
-                </ul>
-                <fieldset>
-                    <h2 class="fs-title">fill the form </h2>
-                    <h3 class="fs-subtitle">mount of money</h3>
-                    {{form.mount}}
-                    <h3 class="fs-subtitle">add or cost</h3>
-                    {{form.action}}
-                    <br>
-                    <input type="button" name="next" class="next action-button" value="Next"/>
-                </fieldset>
-                <fieldset>
-                    <h2 class="fs-title">add info</h2>
-                    <h3 class="fs-subtitle">title</h3>
-                    {{form.title}}
-                    <h3 class="fs-subtitle">description</h3>
-                    {{form.description}}
-                    <input type="submit" name="next" class="next action-button" value="Submit"/>
-                    <input type="button" name="next" class="previous action-button" value="previous"/>
-                </fieldset>
+    <form method="post">{% csrf_token %}
+
+            {{form.mount | as_crispy_field}}
+            <br><h5>Added or removed form card</h5>
+            {{form.action}}
+            <br><br>
+
+            {{form.title  | as_crispy_field}}
+            <br><br>
+            {{form.description | as_crispy_field}}
+
+            <br><input type="submit" value="Save" class="btn btn-success">
         </form>
-    <script src="{% static 'account/js/main.js' %}"></script>
     {%endblock%}
 
 </body>

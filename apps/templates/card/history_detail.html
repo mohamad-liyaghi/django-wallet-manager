@@ -7,15 +7,12 @@
 </head>
 <body>
 {%block body%}
-    <form id="msform">
-        <fieldset>
             <h2>Title: {{object.title}}</h2><hr><br>
-            <h4>Description: {{object.description}}</h4><hr><br>
+            <h4>Description:</h4><p>{{object.description}}</p><hr><br>
             <h4>mount: {{object.mount}}$</h4><hr><br>
             <h4>action: {{object.action}}</h4><hr><br>
-            <a href="{%url 'card:home'%}"><input type="button"  class="next action-button" value="Home"/></a>
-        </fieldset>
-    </form>
+            <a href="{%url 'card:history'%}"><input type="button"  class="btn btn-secondary" value="Back"/></a>
+            <a href="{%url 'card:home'%}"><input type="button"  class="btn btn-secondary" value="Home"/></a>
 {%endblock%}
 </body>
 </html>
