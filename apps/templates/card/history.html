@@ -14,7 +14,7 @@
 
 
                {%for history in object_list%}
-                    <h5><a href="{%url 'card:detail' history.pk%}">{{history}}<br> </a></h5><br>
+                    <h5><a href="{%url 'card:detail' history.token %}">{{history}}<br> </a></h5><br>
                 {%endfor%}
             
             {% if is_paginated %}
