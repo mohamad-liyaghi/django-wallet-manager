@@ -11,12 +11,13 @@
     {%block body%}
         <form method="post">{%csrf_token%}
 
-                    {{form.username | as_crispy_field}}
+                    {{form.login | as_crispy_field}} <br>
+
 
                     {{form.password | as_crispy_field}}
-                    <br><br>
-                    <input type="submit" class="btn btn-success" value="Submit"/> <br><br>
-                    <a href="{%url 'account:register'%}"><input type="button" class="btn btn-secondary" value="Have no account?"/></a>
+                    <br>
+                    <input type="submit" class="btn btn-success" value="Login"/> <br><br>
+                    <a href="{%url 'account_login'%}">No account? Login</a>
         </form>
     {%endblock%}
 
