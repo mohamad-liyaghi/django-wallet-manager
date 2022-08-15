@@ -5,7 +5,7 @@ from django.contrib import messages
 
 import uuid
 
-from account.models import User
+from accounts.models import User
 from card.models import Transaction
 from .forms import CardForm
 
@@ -33,7 +33,7 @@ class Update(LoginRequiredMixin,FormView):
                 user.fund= user.fund - forms.mount
                 
             except:
-                messages.error(self.request, "You don't have enough money in your account")
+                messages.error(self.request, "You don't have enough money in your accounts")
         user.save()
         forms.save()
 

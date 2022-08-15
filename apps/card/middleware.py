@@ -1,4 +1,4 @@
-from account.models import User
+from accounts.models import User
 
 
 class CardMiddleware():

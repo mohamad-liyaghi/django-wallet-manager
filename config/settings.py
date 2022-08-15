@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'apps.account.apps.AccountConfig',
+    'apps.accounts.apps.AccountsConfig',
     'apps.card.apps.CardConfig',
     'crispy_forms',
 ]
@@ -127,11 +127,11 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-AUTH_USER_MODEL = 'account.User'
+AUTH_USER_MODEL = 'accounts.User'
 
 
 LOGIN_REDIRECT_URL = "card:home"
-LOGIN_URL = "account:login"
-LOGOUT_REDIRECT_URL = "account:login"
+LOGIN_URL = "accounts:login"
+LOGOUT_REDIRECT_URL = "accounts:login"
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

@@ -11,20 +11,20 @@ from .mixins import NotAuthenticatedMixin
 # Create your views here.
 
 class Login(NotAuthenticatedMixin, LoginView):
-    template_name = "account/login.html"
+    template_name = "accounts/login.html"
     def get_success_url(self):
         return reverse_lazy('card:home')
 
 class Register(NotAuthenticatedMixin, CreateView):
     form_class = RegisterForm
-    template_name = 'account/register.html'
+    template_name = 'accounts/register.html'
     def form_valid(self, form):
         form.save()
         messages.success(self.request, "Information saved")
         return  redirect('card:home')
     def form_invalid(self, form):
         messages.error(self.request, "Invalid information")
-        return redirect("account:login")
+        return redirect("accounts:login")
 
         
 def Logout(request):
@@ -32,4 +32,4 @@ def Logout(request):
         logout(request)
         return redirect('card:home')
     else:
-        return redirect('account:login')
+        return redirect('accounts:login')
