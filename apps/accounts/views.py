@@ -17,7 +17,7 @@ class Login(NotAuthenticatedMixin, LoginView):
 
 class Register(NotAuthenticatedMixin, CreateView):
     form_class = RegisterForm
-    template_name = 'accounts/register.html'
+    template_name = 'accounts/signup.html'
     def form_valid(self, form):
         form.save()
         messages.success(self.request, "Information saved")

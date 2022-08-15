@@ -12,16 +12,13 @@
     {%block body%}
         <form method="post">{%csrf_token%}
 
-                    {{form.username | as_crispy_field}}<br>
+                    {{form.email | as_crispy_field}}<br>
 
-                    {{form.first_name | as_crispy_field}}<br>
-                    {{form.last_name | as_crispy_field}}<br>
+                    {{form.nick_name | as_crispy_field}}<br>
+                    {{form.balance | as_crispy_field}} <br>
 
                     {{form.password1 | as_crispy_field}}<br>
                     {{form.password2 | as_crispy_field}}<br>
-
-                    <br><h6>How much money do you have in your card?</h6>
-                    {{form.fund | as_crispy_field}}
 
                     <br><input type="submit" class="btn btn-success" value="Register"/> <br>
         </form>
