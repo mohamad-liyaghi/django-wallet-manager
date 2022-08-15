@@ -39,9 +39,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    # third party
+    'allauth',
+    'allauth.account',
+    'crispy_forms',
+    # local
     'apps.accounts.apps.AccountsConfig',
     'apps.card.apps.CardConfig',
-    'crispy_forms',
+
 ]
 
 MIDDLEWARE = [
@@ -127,11 +133,26 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# Allauth configs
+SITE_ID = 1
+
+AUTHENTICATION_BACKENDS = (
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend"
+)
+
 AUTH_USER_MODEL = 'accounts.User'
 
+ACCOUNT_SESSION_REMEMBER = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
 
 LOGIN_REDIRECT_URL = "card:home"
-LOGIN_URL = "accounts:login"
-LOGOUT_REDIRECT_URL = "accounts:login"
+LOGIN_URL = "account_login"
+LOGOUT_REDIRECT_URL = "account_login"
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
