@@ -9,12 +9,15 @@ from accounts.models import User
 from card.models import Transaction
 from .forms import CardForm
 
-# Create your views here.
+
 class Home(LoginRequiredMixin,ListView):
+    '''Simply return users card balance'''
     template_name = "card/home.html"
+    context_object_name = "balance"
 
     def get_queryset(self):
-        return self.request.user.fund
+        return self.request.user.balance
+
 
 class Update(LoginRequiredMixin,FormView):
     template_name = "card/update.html"
