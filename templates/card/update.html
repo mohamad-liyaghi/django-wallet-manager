@@ -12,7 +12,7 @@
     {%block body%}
     <form method="post">{% csrf_token %}
 
-            {{form.mount | as_crispy_field}}
+            {{form.amount | as_crispy_field}}
             <br><h5>Added or removed form card</h5>
             {{form.action}}
             <br><br>

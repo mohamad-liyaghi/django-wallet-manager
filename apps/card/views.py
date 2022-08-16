@@ -3,7 +3,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import (ListView, FormView, ListView, DetailView)
 from django.contrib import messages
 
-import uuid
+import random
 
 from accounts.models import User
 from card.models import Transaction
@@ -19,24 +19,26 @@ class Home(LoginRequiredMixin,ListView):
         return self.request.user.balance
 
 
-class Update(LoginRequiredMixin,FormView):
+class Update(LoginRequiredMixin, FormView):
+    '''Update balance of a card'''
     template_name = "card/update.html"
     form_class = CardForm
 
     def form_valid(self, form):
         forms = form.save(commit=False)
         forms.owner = self.request.user
-        forms.token =  uuid.uuid4().hex.upper()[0:15]
-        user = User.objects.filter(username=self.request.user.username).first()
+        forms.token =  random.randint(1, 99999999999999)
+        user = self.request.user
         
         if forms.action == "+":
-            user.fund= user.fund + forms.mount
+            user.balance = user.balance + forms.amount
         else:
-            try:
-                user.fund= user.fund - forms.mount
-                
-            except:
-                messages.error(self.request, "You don't have enough money in your accounts")
+            if user.balance > forms.amount:
+                user.balance = user.balance - forms.mount
+            else:
+                messages.error(self.request, "Sth went wrong, you dont have enough money in your card!")
+                return redirect("card:home")
+
         user.save()
         forms.save()
 
@@ -44,7 +46,7 @@ class Update(LoginRequiredMixin,FormView):
         return  redirect("card:home")
 
     def form_invalid(self, form):
-        messages.error(self.request, "Invalid information")
+        messages.error(self.request, "Something went wrong with your information...")
         return redirect("card:home")
 
 class History(ListView):
