@@ -22,4 +22,3 @@ $ python manage.py migrate
 $ python manage.py runserver
 ```
 
-<h3>This project unfinished, feel free to complete it </h3>
