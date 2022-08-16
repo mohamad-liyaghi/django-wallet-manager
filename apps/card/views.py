@@ -49,13 +49,15 @@ class Update(LoginRequiredMixin, FormView):
         messages.error(self.request, "Something went wrong with your information...")
         return redirect("card:home")
 
-class History(ListView):
 
+class History(ListView):
+    '''Show latest Transactions'''
     template_name = "card/history.html"
     paginate_by = 5
+    context_object_name = "transactions"
     
     def get_queryset(self):
-        return Transaction.objects.filter(owner=self.request.user)
+        return self.request.user.transactions.all()
 
 class HistoryDetail(DetailView):
 

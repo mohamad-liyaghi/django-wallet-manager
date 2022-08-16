@@ -12,7 +12,7 @@ class Transaction(models.Model):
     description = models.TextField()
     action = models.CharField(max_length=1, choices=Action.choices, default=Action.add)
     amount = models.PositiveSmallIntegerField(default=0)
-    owner = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True, related_name="transactions")
     token = models.CharField(max_length=15, blank=True)
 
     def __str__(self):

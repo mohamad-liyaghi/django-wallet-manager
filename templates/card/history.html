@@ -4,17 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <title>History</title>
-
-
 </head>
 <body>
 {%block body%}
     <form id="msform">
-            <h2 >History page</h2><hr><br>
+            <h2 >History</h2><hr><br>
 
-
-               {%for history in object_list%}
-                    <h5><a href="{%url 'card:detail' history.token %}">{{history}}<br> </a></h5><br>
+               {%for transaction in transactions%}
+                    <ol>
+                        <h5>
+                            <li>
+                                <a href="{%url 'card:detail' transaction.id transaction.token %}">
+                                     {{transaction.title}}<br> </a>
+                            </li>
+                        </h5>
+                        <br>
+                    </ol>
+                {% empty %}
+                        <h5>There is no transaction here...</h5>
                 {%endfor%}
             
             {% if is_paginated %}
