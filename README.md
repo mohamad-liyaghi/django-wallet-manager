@@ -4,7 +4,7 @@ simple wallet manager using django
 # Run manually
 ## step 1:
 ```commandline
-$ git clone https://github.com/Ml06py/wallet-manager.git
+$ git clone https://github.com/mohamad-liyaghi/django-wallet-manager.git
 ```
 ## step 2:
 ```commandline
